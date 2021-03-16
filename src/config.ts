@@ -3,6 +3,9 @@
  * @class
  */
 class Config {
+	public apiVersion: any;
+	public source: any;
+	public language: any;
 
   /**
    * Properties that must be set on initializations

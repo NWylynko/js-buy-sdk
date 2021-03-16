@@ -21,6 +21,12 @@ import types from '../schema.json';
  * @property {ImageResource} image The property under which image helper methods live.
  */
 class Client {
+	public graphQLClient: any;
+	public product: ProductResource;
+	public collection: CollectionResource;
+	public shop: ShopResource;
+	public checkout: CheckoutResource;
+	public image: ImageResource;
 
   /**
    * Primary entry point for building a new Client.
@@ -38,10 +44,10 @@ class Client {
    * @constructs Client
    * @param {Config} config An instance of {@link Config} used to configure the Client.
    */
-  constructor(config, GraphQLClientClass = GraphQLJSClient, fetchFunction) {
+  constructor(config: Config, GraphQLClientClass = GraphQLJSClient, fetchFunction) {
     const url = `https://${config.domain}/api/${config.apiVersion}/graphql`;
 
-    const headers = {
+    const headers: { [x: string]: string } = {
       'X-SDK-Variant': 'javascript',
       'X-SDK-Version': version,
       'X-Shopify-Storefront-Access-Token': config.storefrontAccessToken

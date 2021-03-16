@@ -34,14 +34,14 @@ class CheckoutResource extends Resource {
    * @param {String} id The id of the checkout to fetch.
    * @return {Promise|GraphModel} A promise resolving with a `GraphModel` of the checkout.
    */
-  fetch(id) {
+  fetch(id: any) {
     return this.graphQLClient
       .send(checkoutNodeQuery, {id})
       .then(defaultResolver('node'))
-      .then((checkout) => {
+      .then((checkout: { lineItems: any; attrs: { lineItems: any; }; }) => {
         if (!checkout) { return null; }
 
-        return this.graphQLClient.fetchAllPages(checkout.lineItems, {pageSize: 250}).then((lineItems) => {
+        return this.graphQLClient.fetchAllPages(checkout.lineItems, {pageSize: 250}).then((lineItems: any) => {
           checkout.attrs.lineItems = lineItems;
 
           return checkout;
@@ -96,7 +96,7 @@ class CheckoutResource extends Resource {
    *   @param {String} [input.note] A note for the checkout.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  updateAttributes(checkoutId, input = {}) {
+  updateAttributes(checkoutId: any, input = {}) {
     return this.graphQLClient
       .send(checkoutAttributesUpdateV2Mutation, {checkoutId, input})
       .then(handleCheckoutMutation('checkoutAttributesUpdateV2', this.graphQLClient));
@@ -117,7 +117,7 @@ class CheckoutResource extends Resource {
    * @param {String} email The email address to apply to the checkout.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  updateEmail(checkoutId, email) {
+  updateEmail(checkoutId: any, email: any) {
     return this.graphQLClient
       .send(checkoutEmailUpdateV2Mutation, {checkoutId, email})
       .then(handleCheckoutMutation('checkoutEmailUpdateV2', this.graphQLClient));
@@ -138,7 +138,7 @@ class CheckoutResource extends Resource {
    * @param {Object[]} lineItems A list of line items to add to the checkout. See the {@link https://help.shopify.com/api/storefront-api/reference/input-object/checkoutlineiteminput|Storefront API reference} for valid input fields for each line item.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  addLineItems(checkoutId, lineItems) {
+  addLineItems(checkoutId: any, lineItems: any) {
     return this.graphQLClient
       .send(checkoutLineItemsAddMutation, {checkoutId, lineItems})
       .then(handleCheckoutMutation('checkoutLineItemsAdd', this.graphQLClient));
@@ -159,7 +159,7 @@ class CheckoutResource extends Resource {
    * @param {String} discountCode The discount code to apply to the checkout.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  addDiscount(checkoutId, discountCode) {
+  addDiscount(checkoutId: any, discountCode: any) {
     return this.graphQLClient
       .send(checkoutDiscountCodeApplyV2Mutation, {checkoutId, discountCode})
       .then(handleCheckoutMutation('checkoutDiscountCodeApplyV2', this.graphQLClient));
@@ -178,7 +178,7 @@ class CheckoutResource extends Resource {
    * @param {String} checkoutId The ID of the checkout to remove the discount from.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  removeDiscount(checkoutId) {
+  removeDiscount(checkoutId: any) {
     return this.graphQLClient
       .send(checkoutDiscountCodeRemoveMutation, {checkoutId})
       .then(handleCheckoutMutation('checkoutDiscountCodeRemove', this.graphQLClient));
@@ -199,7 +199,7 @@ class CheckoutResource extends Resource {
    * @param {String[]} giftCardCodes The gift card codes to apply to the checkout.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  addGiftCards(checkoutId, giftCardCodes) {
+  addGiftCards(checkoutId: any, giftCardCodes: any) {
     return this.graphQLClient
       .send(checkoutGiftCardsAppendMutation, {checkoutId, giftCardCodes})
       .then(handleCheckoutMutation('checkoutGiftCardsAppend', this.graphQLClient));
@@ -220,7 +220,7 @@ class CheckoutResource extends Resource {
    * @param {String} appliedGiftCardId The gift card id to remove from the checkout.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  removeGiftCard(checkoutId, appliedGiftCardId) {
+  removeGiftCard(checkoutId: any, appliedGiftCardId: any) {
     return this.graphQLClient
       .send(checkoutGiftCardRemoveV2Mutation, {checkoutId, appliedGiftCardId})
       .then(handleCheckoutMutation('checkoutGiftCardRemoveV2', this.graphQLClient));
@@ -241,7 +241,7 @@ class CheckoutResource extends Resource {
    * @param {String[]} lineItemIds A list of the ids of line items to remove from the checkout.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  removeLineItems(checkoutId, lineItemIds) {
+  removeLineItems(checkoutId: any, lineItemIds: any) {
     return this.graphQLClient
       .send(checkoutLineItemsRemoveMutation, {checkoutId, lineItemIds})
       .then(handleCheckoutMutation('checkoutLineItemsRemove', this.graphQLClient));
@@ -262,7 +262,7 @@ class CheckoutResource extends Resource {
    * @param {Object[]} lineItems A list of line items to set on the checkout. See the {@link https://help.shopify.com/api/storefront-api/reference/input-object/checkoutlineiteminput|Storefront API reference} for valid input fields for each line item.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  replaceLineItems(checkoutId, lineItems) {
+  replaceLineItems(checkoutId: any, lineItems: any) {
     return this.graphQLClient
       .send(checkoutLineItemsReplaceMutation, {checkoutId, lineItems})
       .then(handleCheckoutMutation('checkoutLineItemsReplace', this.graphQLClient));
@@ -289,7 +289,7 @@ class CheckoutResource extends Resource {
    * @param {Object[]} lineItems A list of line item information to update. See the {@link https://help.shopify.com/api/storefront-api/reference/input-object/checkoutlineitemupdateinput|Storefront API reference} for valid input fields for each line item.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  updateLineItems(checkoutId, lineItems) {
+  updateLineItems(checkoutId: any, lineItems: any) {
     return this.graphQLClient
       .send(checkoutLineItemsUpdateMutation, {checkoutId, lineItems})
       .then(handleCheckoutMutation('checkoutLineItemsUpdate', this.graphQLClient));
@@ -321,7 +321,7 @@ class CheckoutResource extends Resource {
    * @param  {Object} shippingAddress A shipping address.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  updateShippingAddress(checkoutId, shippingAddress) {
+  updateShippingAddress(checkoutId: any, shippingAddress: any) {
     return this.graphQLClient
       .send(checkoutShippingAddressUpdateV2Mutation, {checkoutId, shippingAddress})
       .then(handleCheckoutMutation('checkoutShippingAddressUpdateV2', this.graphQLClient));

@@ -14,6 +14,7 @@ optimized-types.js
 # Build artifacts
 index.*
 !docs/index.html
+dist/
 
 # Decrypted secrets
 secrets.json
