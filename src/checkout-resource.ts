@@ -3,19 +3,19 @@ import defaultResolver from './default-resolver';
 import handleCheckoutMutation from './handle-checkout-mutation';
 
 // GraphQL
-import checkoutNodeQuery from './graphql/checkoutNodeQuery.graphql';
-import checkoutCreateMutation from './graphql/checkoutCreateMutation.graphql';
-import checkoutLineItemsAddMutation from './graphql/checkoutLineItemsAddMutation.graphql';
-import checkoutLineItemsRemoveMutation from './graphql/checkoutLineItemsRemoveMutation.graphql';
-import checkoutLineItemsReplaceMutation from './graphql/checkoutLineItemsReplaceMutation.graphql';
-import checkoutLineItemsUpdateMutation from './graphql/checkoutLineItemsUpdateMutation.graphql';
-import checkoutAttributesUpdateV2Mutation from './graphql/checkoutAttributesUpdateV2Mutation.graphql';
-import checkoutDiscountCodeApplyV2Mutation from './graphql/checkoutDiscountCodeApplyV2Mutation.graphql';
-import checkoutDiscountCodeRemoveMutation from './graphql/checkoutDiscountCodeRemoveMutation.graphql';
-import checkoutGiftCardsAppendMutation from './graphql/checkoutGiftCardsAppendMutation.graphql';
-import checkoutGiftCardRemoveV2Mutation from './graphql/checkoutGiftCardRemoveV2Mutation.graphql';
-import checkoutEmailUpdateV2Mutation from './graphql/checkoutEmailUpdateV2Mutation.graphql';
-import checkoutShippingAddressUpdateV2Mutation from './graphql/checkoutShippingAddressUpdateV2Mutation.graphql';
+import checkoutNodeQuery from './graphql/checkoutNodeQuery';
+import checkoutCreateMutation from './graphql/checkoutCreateMutation';
+import checkoutLineItemsAddMutation from './graphql/checkoutLineItemsAddMutation';
+import checkoutLineItemsRemoveMutation from './graphql/checkoutLineItemsRemoveMutation';
+import checkoutLineItemsReplaceMutation from './graphql/checkoutLineItemsReplaceMutation';
+import checkoutLineItemsUpdateMutation from './graphql/checkoutLineItemsUpdateMutation';
+import checkoutAttributesUpdateV2Mutation from './graphql/checkoutAttributesUpdateV2Mutation';
+import checkoutDiscountCodeApplyV2Mutation from './graphql/checkoutDiscountCodeApplyV2Mutation';
+import checkoutDiscountCodeRemoveMutation from './graphql/checkoutDiscountCodeRemoveMutation';
+import checkoutGiftCardsAppendMutation from './graphql/checkoutGiftCardsAppendMutation';
+import checkoutGiftCardRemoveV2Mutation from './graphql/checkoutGiftCardRemoveV2Mutation';
+import checkoutEmailUpdateV2Mutation from './graphql/checkoutEmailUpdateV2Mutation';
+import checkoutShippingAddressUpdateV2Mutation from './graphql/checkoutShippingAddressUpdateV2Mutation';
 
 /**
  * The JS Buy SDK checkout resource

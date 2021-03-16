@@ -2,8 +2,8 @@ import Resource from './resource';
 import defaultResolver from './default-resolver';
 
 // GraphQL
-import shopQuery from './graphql/shopQuery.graphql';
-import shopPolicyQuery from './graphql/shopPolicyQuery.graphql';
+import shopQuery from './graphql/shopQuery';
+import shopPolicyQuery from './graphql/shopPolicyQuery';
 
 /**
  * The JS Buy SDK shop resource

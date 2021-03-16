@@ -3,11 +3,11 @@ import defaultResolver from './default-resolver';
 import {paginateCollectionsProductConnectionsAndResolve} from './paginators';
 
 // GraphQL
-import collectionNodeQuery from './graphql/collectionNodeQuery.graphql';
-import collectionNodeWithProductsQuery from './graphql/collectionNodeWithProductsQuery.graphql';
-import collectionConnectionQuery from './graphql/collectionConnectionQuery.graphql';
-import collectionConnectionWithProductsQuery from './graphql/collectionConnectionWithProductsQuery.graphql';
-import collectionByHandleQuery from './graphql/collectionByHandleQuery.graphql';
+import collectionNodeQuery from './graphql/collectionNodeQuery';
+import collectionNodeWithProductsQuery from './graphql/collectionNodeWithProductsQuery';
+import collectionConnectionQuery from './graphql/collectionConnectionQuery';
+import collectionConnectionWithProductsQuery from './graphql/collectionConnectionWithProductsQuery';
+import collectionByHandleQuery from './graphql/collectionByHandleQuery';
 
 /**
  * The JS Buy SDK collection resource

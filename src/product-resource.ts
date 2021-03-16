@@ -4,10 +4,10 @@ import {paginateProductConnectionsAndResolve} from './paginators';
 import productHelpers from './product-helpers';
 
 // GraphQL
-import productNodeQuery from './graphql/productNodeQuery.graphql';
-import productNodesQuery from './graphql/productNodesQuery.graphql';
-import productConnectionQuery from './graphql/productConnectionQuery.graphql';
-import productByHandleQuery from './graphql/productByHandleQuery.graphql';
+import productNodeQuery from './graphql/productNodeQuery';
+import productNodesQuery from './graphql/productNodesQuery';
+import productConnectionQuery from './graphql/productConnectionQuery';
+import productByHandleQuery from './graphql/productByHandleQuery';
 
 /**
  * The JS Buy SDK product resource
